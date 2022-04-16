@@ -2,19 +2,34 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Compile') {
             steps {
-                echo 'Building..'
+                echo 'compiling..'
+                sh 'mvn compile'
             }
         }
-        stage('Test') {
+        stage('codereveiw') {
             steps {
-                echo 'Testing..'
+                echo 'reveiw..'
+                sh 'mvn pmd:pmd'
             }
         }
-        stage('Deploy') {
+        stage('test') {
             steps {
-                echo 'Deploying....'
+                echo 'testing....'
+                sh 'mvn test'
+            }
+        }
+        stage('Metricheck') {
+            steps {
+                echo 'testing....'
+                sh 'mvn cobertura:cobertura'
+            }
+        }
+        stage('build') {
+            steps {
+                echo 'testing....'
+                sh 'mvn package'
             }
         }
     }
