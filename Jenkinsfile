@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Metricheck') {
             steps {
-                echo 'metrickcheck....'
+                echo 'metricheck....'
                 sh 'mvn cobertura:cobertura'
             }
         }
