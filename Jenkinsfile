@@ -16,13 +16,13 @@ pipeline {
         }
         stage('test') {
             steps {
-                echo 'testing....'
+                echo 'Testing....'
                 sh 'mvn test'
             }
         }
         stage('Metricheck') {
             steps {
-                echo 'testing....'
+                echo 'metrickcheck....'
                 sh 'mvn cobertura:cobertura'
             }
         }
